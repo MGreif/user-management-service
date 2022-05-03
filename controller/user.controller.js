@@ -1,10 +1,16 @@
-const { HttpError, NotFoundError } = require("../errorHandler")
-const UserService = require("../services/user.service")
+const { HttpError, NotFoundError } = require('../errorHandler')
+const UserService = require('../services/user.service')
+const bcrypt = require('bcrypt')
 
 const createUser = async (req, res, next) => {
   try {
     const { body } = req
-    const result = await UserService.createUser(body)
+    const passwordRaw = body.password
+    const bcryptedPassword = await bcrypt.hash(passwordRaw, 12)
+    const result = await UserService.createUser({
+      ...body,
+      password: bcryptedPassword,
+    })
     res.json(result)
   } catch (error) {
     next(error)
@@ -13,13 +19,13 @@ const createUser = async (req, res, next) => {
 
 const getUsers = async (req, res, next) => {
   try {
-  const { query } = req
-  const result = await UserService.getUsers(query)
-  res.json(result)
+    const { query } = req
+    const result = await UserService.getUsers(query)
+    res.json(result)
   } catch (error) {
     next(error)
   }
-} 
+}
 
 const deleteUser = async (req, res, next) => {
   try {
