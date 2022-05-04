@@ -1,9 +1,8 @@
-
 require('dotenv').config()
-const http = require('http');
-const app = require('./app');
-const connectMongoose = require('./config/connectMongoose');
-const { logger } = require('./config/logger');
+import * as http from 'http';
+import app from './app';
+import connectMongoose from './config/connectMongoose';
+import { logger } from './config/logger'
 
 const port = normalizePort(process.env.PORT || '8000');
 app.set('port', port);

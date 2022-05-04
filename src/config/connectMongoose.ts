@@ -11,4 +11,4 @@ const connectMongoose = () => {
   }).then(() => logger.debug('successfully established connection to mongo'))
 }
 
-module.exports = connectMongoose
+export default connectMongoose
