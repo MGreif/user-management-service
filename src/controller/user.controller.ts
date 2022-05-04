@@ -1,6 +1,6 @@
-const { HttpError, NotFoundError } = require('../errorHandler')
-const UserService = require('../services/user.service')
-const bcrypt = require('bcrypt')
+import { HttpError, NotFoundError } from '../errorHandler'
+import * as UserService from '../services/user.service'
+import * as bcrypt from 'bcrypt'
 
 const createUser = async (req, res, next) => {
   try {
@@ -54,4 +54,4 @@ const updateUser = async (req, res, next) => {
   }
 }
 
-module.exports = { createUser, getUsers, deleteUser, updateUser }
+export { createUser, getUsers, deleteUser, updateUser }

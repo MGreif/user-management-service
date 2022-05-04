@@ -1,10 +1,10 @@
 import * as express from 'express';
 import * as cookieParser from 'cookie-parser';
 
-const indexRouter = require('./routes/index');
-const userRouter = require('./routes/user.route');
-const { errorHandler } = require('./errorHandler');
-const { loggerMiddleware } = require('./config/logger');
+import indexRouter from './routes/index';
+import userRouter from './routes/user.route'
+import { errorHandler } from './errorHandler';
+import { loggerMiddleware } from './config/logger';
 
 const app = express();
 

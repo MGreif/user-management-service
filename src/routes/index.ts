@@ -1,4 +1,4 @@
-const express = require('express');
+import * as express from 'express';
 const router = express.Router();
 
 /* GET home page. */
@@ -6,4 +6,4 @@ router.get('/', function (req, res) {
   res.send('user-management-service works!');
 });
 
-module.exports = router;
+export default router;

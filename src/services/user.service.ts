@@ -1,4 +1,4 @@
-const UserModel = require("../models/user.model")
+import UserModel from "../models/user.model"
 
 const createUser = async (userData = {}) => {
   const result = await UserModel.create(userData)
@@ -20,4 +20,4 @@ const updateUser = async (id, updateData = {}) => {
   return result
 }
 
-module.exports = { createUser, getUsers, deleteUser, updateUser }
+export { createUser, getUsers, deleteUser, updateUser }
