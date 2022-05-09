@@ -1,4 +1,13 @@
-import * as mongoose from "mongoose"
+import * as mongoose from 'mongoose'
+
+export type TUser = {
+  name?: string
+  surname?: string
+  username: string
+  password: string
+  profilePicture?: string
+  roles?: string[]
+}
 
 const userSchema = new mongoose.Schema({
   name: { type: String },
@@ -6,9 +15,7 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
   password: { type: String, required: true },
   profilePicture: { type: String },
-  roles: [
-    {type: String}
-  ],
+  roles: [{ type: String }],
 })
 
 const UserModel = mongoose.model('user', userSchema)

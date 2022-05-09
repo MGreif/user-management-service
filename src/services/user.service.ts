@@ -1,4 +1,4 @@
-import UserModel from "../models/user.model"
+import UserModel from '../models/user.model'
 
 const createUser = async (userData = {}) => {
   const result = await UserModel.create(userData)
@@ -8,7 +8,12 @@ const createUser = async (userData = {}) => {
 const getUsers = async (filter = {}) => {
   const result = await UserModel.find(filter)
   return result
-} 
+}
+
+const getUser = async (filter = {}) => {
+  const result = await UserModel.findOne(filter)
+  return result
+}
 
 const deleteUser = async (id) => {
   const result = await UserModel.deleteOne({ _id: id })
@@ -20,4 +25,4 @@ const updateUser = async (id, updateData = {}) => {
   return result
 }
 
-export { createUser, getUsers, deleteUser, updateUser }
+export { createUser, getUsers, deleteUser, updateUser, getUser }
