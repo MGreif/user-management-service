@@ -1,0 +1,17 @@
+services:
+  rabbitmq:
+    network_mode: host
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    user-management-service:
+    container_name: user-management-service
+    image: user-management-service:release
+    network_mode: host
+    env_file:
+      - ../.env
+    build: ..
+    volumes:
+      - /home/mgreif/logs/user-management-service:/app/logs
+    depends_on:
+      rabbitmq:
+        condition: service_started
