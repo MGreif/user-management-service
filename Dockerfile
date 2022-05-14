@@ -8,7 +8,6 @@ FROM node:lts-alpine
 ENV NODE_ENV production
 WORKDIR /app
 COPY --from=build /app/node_modules /app/node_modules
-RUN docker image prune --filter label=stage=builder
 COPY . /app/
 
 CMD ["npm", "start"]
